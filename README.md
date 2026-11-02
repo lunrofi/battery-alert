@@ -1,8 +1,8 @@
-# Battery Alert
+# Battery Alert %1
 
 ![Icon](icon.png)
 
-**Battery Alert** warns you before your phone dies. When your battery hits **1%** and you are not charging, it shows a full-screen pop-up, plays a sound, and vibrates — once per low-battery episode.
+**Battery Alert %1** warns you before your phone dies. When your battery hits **1%** and you are not charging, it shows a full-screen pop-up, plays a sound, and vibrates — once per low-battery episode.
 
 ## Features
 - Triggers at exactly 1% battery, only when not charging
@@ -17,7 +17,7 @@
 
 ## How it works
 1. Install the APK from Releases.
-2. Open **Battery Alert**.
+2. Open **Battery Alert %1**.
 3. Tap **Start Protection**.
 4. Allow notifications and "Display over other apps" when asked.
 5. For best reliability, exclude the app from battery optimization.
@@ -41,7 +41,7 @@ No data is collected, no account is needed, nothing leaves your phone.
 
 ## Technical details
 - Package: `com.bmo.sarjuyari`
-- Version: 1.3 (versionCode 4)
+- Version: 1.4 (versionCode 5)
 - Min SDK: 26 (Android 8.0+)
 - Target SDK: 34 (Android 14)
 - Built with aapt2 + d8, signed, zipaligned
