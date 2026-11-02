@@ -2,13 +2,13 @@
 
 ![Icon](icon.png)
 
-**Battery Alert** warns you before your phone dies. When your battery hits **1%** and you are not charging, it shows a full-screen pop-up, plays a sound, and vibrates — repeating every 20 seconds until you plug in the charger.
+**Battery Alert** warns you before your phone dies. When your battery hits **1%** and you are not charging, it shows a full-screen pop-up, plays a sound, and vibrates — once per low-battery episode.
 
 ## Features
 - Triggers at exactly 1% battery, only when not charging
 - Full-screen red pop-up, even on the lock screen
-- Alarm sound + vibration
-- Repeats every 20 seconds until charging
+- Normal notification sound + vibration (no alarm)
+- Warns only once per 1% episode (no repeat spam)
 - Stops automatically when you plug in
 - Foreground service, so it keeps running in the background
 - Auto-starts after reboot
@@ -40,7 +40,7 @@ No data is collected, no account is needed, nothing leaves your phone.
 
 ## Technical details
 - Package: `com.bmo.sarjuyari`
-- Version: 1.1 (versionCode 2)
+- Version: 1.2 (versionCode 3)
 - Min SDK: 26 (Android 8.0+)
 - Target SDK: 34 (Android 14)
 - Built with aapt2 + d8, signed, zipaligned
