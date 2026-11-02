@@ -27,7 +27,7 @@ When the battery reaches 1%, you will see:
 > **BATTERY 1%!**
 > Your phone is about to shut down. Plug in the charger now!
 
-Tap **OK** to dismiss that pop-up — it will come back every 20 seconds until you charge.
+Tap **OK** to dismiss that pop-up. It warns only once per 1% episode.
 
 ## Permissions
 - `FOREGROUND_SERVICE` / `FOREGROUND_SERVICE_SPECIAL_USE` — keep the monitor running
@@ -53,3 +53,53 @@ Get the APK from the **Releases** page: `battery-alert.apk`
 ## Screenshots / behavior
 - Main screen: dark modern UI with live battery percentage
 - Alert screen: full-screen red warning with big "BATTERY 1%!" text
+
+## Source code
+Full source code is in this repository as `battery-alert-source.zip` (AndroidManifest, Java sources, layouts, drawables, icon, README, LICENSE). Unzip it to build the app yourself with aapt2 + d8, or open the files in `proj/`.
+
+## Tags
+Search terms people use when they want this app — in Turkish and English, problem-focused:
+
+Turkish:
+- sarjim %1 oldugunda uyari versin
+- sarj %1 oldugunda uyari
+- telefon kapanmadan once uyari
+- sarj bitmeden uyari veren uygulama
+- sarj azalinca alarm
+- sarj %1 alarm uygulamasi
+- telefon sarji bitince haber ver
+- sarjim bitiyor uyarisi
+- sarj dusukken pop-up uyari
+- sarj bitmeden once sesli uyari
+- android sarj uyarisi uygulamasi
+- sarj %5 %10 uyari (not: bu uygulama %1'de uyarir)
+- telefon kapanmasin diye uyari
+- sarj bitti uyarisi android
+- dusuk sarj bildirimi uygulamasi
+- sarj takip uygulamasi android
+- pil %1 uyari uygulamasi
+- sarj bitince telefon kapaniyor cozum
+- sarj aniden bitiyor uyari yok
+- android pil uyarisi ayarlama
+
+English:
+- battery 1% warning app
+- warn me when battery reaches 1%
+- low battery warning android
+- phone shutdown warning app
+- battery low pop-up alert
+- alert before phone dies
+- android battery alert app
+- 1 percent battery notification
+- battery dies without warning fix
+- low battery alarm android app
+- full screen battery warning
+- battery warning when not charging
+- android app that warns at 1% battery
+- prevent phone shutdown warning
+- battery level alert android
+- low battery sound notification app
+- phone battery low warning popup
+- android background battery monitor app
+- battery alert no repeat spam
+- how to get warned at 1% battery android
