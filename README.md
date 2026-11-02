@@ -10,8 +10,9 @@
 - Normal notification sound + vibration (no alarm)
 - Warns only once per 1% episode (no repeat spam)
 - Stops automatically when you plug in
-- Foreground service, so it keeps running in the background
+- Foreground service, auto-restart if swiped away, and a per-device background permission button
 - Auto-starts after reboot
+- Uninterrupted mode: opens your brand's own autostart / battery page (Samsung, Xiaomi, Huawei, Oppo, Vivo, OnePlus, Asus) and requests ignore-battery-optimizations
 - Modern dark UI, English interface
 
 ## How it works
@@ -40,7 +41,7 @@ No data is collected, no account is needed, nothing leaves your phone.
 
 ## Technical details
 - Package: `com.bmo.sarjuyari`
-- Version: 1.2 (versionCode 3)
+- Version: 1.3 (versionCode 4)
 - Min SDK: 26 (Android 8.0+)
 - Target SDK: 34 (Android 14)
 - Built with aapt2 + d8, signed, zipaligned
