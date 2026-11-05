@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://lunrofi.github.io/battery-alert/sitemap.xml

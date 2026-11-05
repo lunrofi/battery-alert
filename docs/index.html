@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Battery Alert %1 — Warn Me Before My Phone Dies</title>
+<meta name="description" content="Battery Alert %1 warns you the moment your battery hits 1% and you are not charging: a full-screen red pop-up, a sound, and vibration — once per episode, no spam. Free, open source, no tracking.">
+<meta name="keywords" content="battery 1% warning app, warn me when battery reaches 1%, low battery warning android, phone shutdown warning app, battery low pop-up alert, alert before phone dies, android battery alert app, 1 percent battery notification, battery dies without warning fix, low battery alarm android app, full screen battery warning, battery warning when not charging, prevent phone shutdown warning, low battery sound notification app, phone battery low warning popup, android background battery monitor app, sarj %1 oldugunda uyari, sarj bitmeden uyari veren uygulama, pil %1 uyari uygulamasi, dusuk sarj bildirimi uygulamasi, android pil uyarisi">
+<meta name="author" content="lunrofi">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://lunrofi.github.io/battery-alert/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Battery Alert %1 — Warn Me Before My Phone Dies">
+<meta property="og:description" content="At exactly 1% battery, while not charging: a full-screen red pop-up, a sound, and vibration. Once, no spam. Free, open source, no tracking.">
+<meta property="og:url" content="https://lunrofi.github.io/battery-alert/">
+<meta property="og:image" content="https://raw.githubusercontent.com/lunrofi/battery-alert/main/icon.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Battery Alert %1 — Warn Me Before My Phone Dies">
+<meta name="twitter:description" content="At exactly 1% battery, while not charging: a full-screen red pop-up, a sound, and vibration. Once, no spam.">
+<link rel="icon" type="image/png" href="https://raw.githubusercontent.com/lunrofi/battery-alert/main/icon.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Battery Alert %1",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Android",
+  "author": { "@type": "Person", "name": "lunrofi" },
+  "url": "https://lunrofi.github.io/battery-alert/",
+  "downloadUrl": "https://github.com/lunrofi/battery-alert/releases/download/v1.4/battery-alert.apk",
+  "softwareVersion": "1.4",
+  "fileSize": "37 KB",
+  "license": "https://github.com/lunrofi/battery-alert/blob/main/LICENSE",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "description": "Battery Alert %1 warns you the moment your battery hits 1% and you are not charging: a full-screen red pop-up, a sound, and vibration — once per episode, no spam."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Does Battery Alert warn at other battery levels?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. It triggers at exactly 1% battery, and only when you are not charging. That is the last chance before the phone shuts down." } },
+    { "@type": "Question", "name": "Does it keep warning over and over?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. It warns only once per low-battery episode, with no repeat spam, and it stops automatically when you plug in." } },
+    { "@type": "Question", "name": "Which Android versions work?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Android 8.0 and newer. The app is plain Java with no heavy libraries, about 37 KB." } },
+    { "@type": "Question", "name": "Is it on Google Play?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Not yet. Right now it is distributed from GitHub." } },
+    { "@type": "Question", "name": "How do I get warned at 1% battery on Android?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Install the APK from Releases, open Battery Alert %1, tap Start Protection, and allow notifications and display over other apps when asked. For best reliability, exclude the app from battery optimization." } }
+  ]
+}
+</script>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: #050508; color: #E4E6EB; line-height: 1.6;
+  }
+  a { color: #F87171; }
+  .glow {
+    background: radial-gradient(ellipse 700px 340px at 50% -60px, #3F0D0D 0%, #0A0A12 55%, #050508 100%);
+  }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 0 20px; }
+  header { display: flex; align-items: center; gap: 14px; padding: 26px 0 10px; }
+  header img { width: 56px; height: 56px; border-radius: 14px; }
+  header .name { font-size: 26px; font-weight: 800; letter-spacing: -0.5px; }
+  header nav { margin-left: auto; display: flex; gap: 18px; font-size: 15px; }
+  header nav a { color: #9CA3AF; text-decoration: none; }
+  header nav a:hover { color: #fff; }
+  .hero { text-align: center; padding: 56px 0 30px; }
+  .badge {
+    display: inline-block; font-size: 13px; letter-spacing: 0.4px;
+    padding: 6px 14px; border-radius: 999px;
+    border: 1px solid #EF4444; color: #FCA5A5; background: rgba(239,68,68,0.12);
+  }
+  h1 { font-size: clamp(38px, 7vw, 64px); line-height: 1.08; letter-spacing: -1px; margin: 22px 0 14px; }
+  h1 span { background: linear-gradient(90deg, #EF4444, #F59E0B, #F97316); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .tagline { font-size: 19px; color: #9CA3AF; max-width: 640px; margin: 0 auto; }
+  .cta { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 30px; }
+  .btn {
+    display: inline-block; padding: 15px 30px; border-radius: 16px; font-size: 17px;
+    font-weight: 700; text-decoration: none; transition: transform 0.1s;
+  }
+  .btn:hover { transform: scale(0.97); }
+  .btn-primary { background: #DC2626; color: #fff; }
+  .btn-ghost { border: 2px solid #DC2626; color: #F87171; }
+  .meta { margin-top: 18px; color: #9CA3AF; font-size: 14px; }
+  section { padding: 54px 0 10px; }
+  h2 { font-size: 30px; letter-spacing: -0.5px; margin-bottom: 8px; }
+  .sec-sub { color: #9CA3AF; margin-bottom: 26px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+  .card {
+    background: #14141E; border-radius: 26px; padding: 22px;
+    border: 2px solid transparent;
+    background: linear-gradient(#14141E, #14141E) padding-box,
+      linear-gradient(135deg, rgba(239,68,68,0.55), rgba(245,158,11,0.55), rgba(249,115,22,0.55)) border-box;
+  }
+  .card .ico { font-size: 26px; margin-bottom: 8px; }
+  .card h3 { font-size: 18px; margin-bottom: 6px; }
+  .card p { color: #9CA3AF; font-size: 15px; }
+  .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+  .step { background: #14141E; border-radius: 22px; padding: 22px; }
+  .step .n {
+    width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center;
+    justify-content: center; font-weight: 800; color: #fff; margin-bottom: 12px;
+    background: linear-gradient(135deg, #DC2626, #F59E0B);
+  }
+  .step h3 { margin-bottom: 6px; }
+  .step p { color: #9CA3AF; font-size: 15px; }
+  .alert-quote {
+    text-align: center; background: linear-gradient(135deg, #450A0A, #1E1B4B);
+    border-radius: 28px; padding: 40px 24px; margin-top: 26px;
+  }
+  .alert-quote .big { font-size: clamp(30px, 6vw, 48px); font-weight: 800; letter-spacing: -0.5px; color: #FCA5A5; }
+  .alert-quote p { color: #CBD5E1; margin-top: 8px; }
+  table { width: 100%; border-collapse: collapse; font-size: 15px; }
+  th, td { text-align: left; padding: 12px 10px; border-bottom: 1px solid #2A2A35; vertical-align: top; }
+  th { color: #9CA3AF; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .faq { background: #14141E; border-radius: 22px; padding: 22px; margin-bottom: 14px; }
+  .faq h3 { margin-bottom: 6px; }
+  .faq p { color: #9CA3AF; font-size: 15px; }
+  .dl-box {
+    text-align: center; background: linear-gradient(135deg, #450A0A, #78350F);
+    border-radius: 28px; padding: 44px 24px;
+  }
+  .dl-box h2 { margin-bottom: 10px; }
+  .dl-box p { color: #CBD5E1; }
+  code { background: #1E2025; padding: 2px 8px; border-radius: 8px; font-size: 13px; word-break: break-all; }
+  .hash { margin-top: 18px; font-size: 13px; color: #9CA3AF; }
+  footer { text-align: center; color: #9CA3AF; font-size: 14px; padding: 50px 0 34px; }
+  @media (max-width: 640px) { header nav { display: none; } }
+</style>
+</head>
+<body>
+<div class="glow">
+<div class="wrap">
+
+<header>
+  <img src="https://raw.githubusercontent.com/lunrofi/battery-alert/main/icon.png" alt="Battery Alert icon">
+  <div class="name">Battery Alert %1</div>
+  <nav>
+    <a href="#features">Features</a>
+    <a href="#how">How it works</a>
+    <a href="#privacy">Privacy</a>
+    <a href="#download">Download</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <div class="badge">OPEN SOURCE &middot; MIT &middot; ANDROID 8.0+</div>
+  <h1>Your phone is about to die.<br>Get warned at <span>1%.</span></h1>
+  <p class="tagline">When your battery hits 1% and you are not charging, Battery Alert %1 shows a full-screen red pop-up, plays a sound, and vibrates &mdash; once per episode, no repeat spam.</p>
+  <div class="cta">
+    <a class="btn btn-primary" href="https://github.com/lunrofi/battery-alert/releases/download/v1.4/battery-alert.apk">Download Battery Alert 1.4</a>
+    <a class="btn btn-ghost" href="https://github.com/lunrofi/battery-alert">View source on GitHub</a>
+  </div>
+  <p class="meta">Free &middot; ~37 KB &middot; No account &middot; No tracking &middot; English interface</p>
+</div>
+
+<section id="features">
+  <h2>Everything it does</h2>
+  <p class="sec-sub">One small app, no heavy libraries, plain Java. Every feature below is in version 1.4.</p>
+  <div class="grid">
+    <div class="card"><div class="ico">&#128267;</div><h3>Triggers at exactly 1%</h3><p>Warns only when the battery hits 1% &mdash; and only when you are not charging.</p></div>
+    <div class="card"><div class="ico">&#128680;</div><h3>Full-screen red pop-up</h3><p>A big red warning even on the lock screen, so you cannot miss it.</p></div>
+    <div class="card"><div class="ico">&#128276;</div><h3>Sound + vibration</h3><p>A normal notification sound plus vibration. No alarm, no panic siren.</p></div>
+    <div class="card"><div class="ico">&#128472;</div><h3>Once per episode</h3><p>Warns only once per low-battery episode. No repeat spam.</p></div>
+    <div class="card"><div class="ico">&#128268;</div><h3>Stops when you plug in</h3><p>The moment the charger is connected, the warning stops automatically.</p></div>
+    <div class="card"><div class="ico">&#128260;</div><h3>Foreground service</h3><p>Keeps monitoring in the background and auto-restarts if swiped away.</p></div>
+    <div class="card"><div class="ico">&#128640;</div><h3>Auto-start after reboot</h3><p>Protection restarts by itself when the phone boots.</p></div>
+    <div class="card"><div class="ico">&#128241;</div><h3>Uninterrupted mode</h3><p>Opens your brand's own autostart / battery page (Samsung, Xiaomi, Huawei, Oppo, Vivo, OnePlus, Asus) and requests ignore-battery-optimizations.</p></div>
+    <div class="card"><div class="ico">&#127769;</div><h3>Modern dark UI</h3><p>Dark interface with a live battery percentage, in English.</p></div>
+  </div>
+</section>
+
+<section id="how">
+  <h2>How it works</h2>
+  <p class="sec-sub">Four steps, then your phone will never die on you without warning.</p>
+  <div class="steps">
+    <div class="step"><div class="n">1</div><h3>Install the APK</h3><p>Download Battery Alert 1.4 from Releases and install it.</p></div>
+    <div class="step"><div class="n">2</div><h3>Open the app</h3><p>Open Battery Alert %1 on your phone.</p></div>
+    <div class="step"><div class="n">3</div><h3>Tap Start Protection</h3><p>One tap starts the battery monitor.</p></div>
+    <div class="step"><div class="n">4</div><h3>Allow two permissions</h3><p>Allow notifications and "Display over other apps" when asked. For best reliability, exclude the app from battery optimization.</p></div>
+  </div>
+  <div class="alert-quote">
+    <div class="big">BATTERY 1%!</div>
+    <p>Your phone is about to shut down. Plug in the charger now!</p>
+    <p>Tap OK to dismiss that pop-up. It warns only once per episode.</p>
+  </div>
+</section>
+
+<section id="permissions">
+  <h2>Permissions, explained</h2>
+  <p class="sec-sub">Nothing here is used for anything but warning you at 1%.</p>
+  <table>
+    <tr><th>Permission</th><th>Why it is needed</th></tr>
+    <tr><td>Foreground service</td><td>Keep the battery monitor running.</td></tr>
+    <tr><td>Post notifications</td><td>Show the alarm notification.</td></tr>
+    <tr><td>Vibrate</td><td>Vibration alert.</td></tr>
+    <tr><td>Display over other apps</td><td>Show the pop-up over other apps and the lock screen.</td></tr>
+    <tr><td>Receive boot completed</td><td>Restart protection after reboot.</td></tr>
+    <tr><td>Wake lock</td><td>Wake the screen for the alert.</td></tr>
+  </table>
+</section>
+
+<section id="privacy">
+  <h2>Privacy</h2>
+  <p class="sec-sub">The whole point is that nothing leaves your phone.</p>
+  <div class="grid">
+    <div class="card"><div class="ico">&#128274;</div><h3>No data collected</h3><p>No data is collected, no account is needed, nothing leaves your phone.</p></div>
+    <div class="card"><div class="ico">&#128196;</div><h3>Everything on-device</h3><p>Battery monitoring and settings all live on your phone.</p></div>
+    <div class="card"><div class="ico">&lt;/&gt;</div><h3>Open source</h3><p>MIT licensed. Full source code is in the repository as battery-alert-source.zip &mdash; build it yourself with aapt2 + d8, no Gradle required.</p></div>
+  </div>
+</section>
+
+<section>
+  <h2>Questions, answered</h2>
+  <div class="faq"><h3>Does it warn at other battery levels?</h3><p>No. It triggers at exactly 1% battery, and only when you are not charging. That is the last chance before the phone shuts down.</p></div>
+  <div class="faq"><h3>Does it keep warning over and over?</h3><p>No. It warns only once per low-battery episode, with no repeat spam, and it stops automatically when you plug in.</p></div>
+  <div class="faq"><h3>Which Android versions work?</h3><p>Android 8.0 and newer. The app is plain Java with no heavy libraries, about 37 KB.</p></div>
+  <div class="faq"><h3>Is it on Google Play?</h3><p>Not yet. Right now it is distributed from GitHub.</p></div>
+  <div class="faq"><h3>How do I get warned at 1% battery on Android?</h3><p>Install the APK from Releases, open Battery Alert %1, tap Start Protection, and allow notifications and display over other apps when asked. For best reliability, exclude the app from battery optimization.</p></div>
+</section>
+
+<section id="download">
+  <div class="dl-box">
+    <h2>Download Battery Alert 1.4</h2>
+    <p>Free, open source, ~37 KB. Requires Android 8.0 or newer.</p>
+    <div class="cta">
+      <a class="btn btn-primary" href="https://github.com/lunrofi/battery-alert/releases/download/v1.4/battery-alert.apk">Download APK (37 KB)</a>
+    </div>
+    <p class="hash">APK SHA-256:<br><code>835e40c0d46a0c649c99f7fa3b33540d9cbb5d37a9fbb8051688b8e8a93fe19c</code></p>
+    <p class="meta">Package: com.bmo.sarjuyari &middot; Version 1.4 (versionCode 5) &middot; Also on <a href="https://github.com/lunrofi/battery-alert/releases/tag/v1.4">GitHub Releases</a> &middot; Source: <a href="https://github.com/lunrofi/battery-alert">lunrofi/battery-alert</a></p>
+  </div>
+</section>
+
+<footer>
+  Battery Alert %1 &middot; by lunrofi &middot; MIT License &middot;
+  <a href="https://github.com/lunrofi/battery-alert">GitHub</a>
+</footer>
+
+</div>
+</div>
+</body>
+</html>
