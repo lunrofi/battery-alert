@@ -1,8 +1,8 @@
-# Battery Alert %1
+# One Percent Alert
 
 ![Icon](icon.png)
 
-**Battery Alert %1** warns you before your phone dies. When your battery hits **1%** and you are not charging, it shows a full-screen pop-up, plays a sound, and vibrates — once per low-battery episode.
+**One Percent Alert** warns you before your phone dies. When your battery hits **1%** and you are not charging, it shows a full-screen pop-up, plays a sound, and vibrates — once per low-battery episode.
 
 ## Features
 - Triggers at exactly 1% battery, only when not charging
@@ -17,7 +17,7 @@
 
 ## How it works
 1. Install the APK from Releases.
-2. Open **Battery Alert %1**.
+2. Open **One Percent Alert**.
 3. Tap **Start Protection**.
 4. Allow notifications and "Display over other apps" when asked.
 5. For best reliability, exclude the app from battery optimization.
@@ -40,7 +40,7 @@ Tap **OK** to dismiss that pop-up. It warns only once per 1% episode.
 No data is collected, no account is needed, nothing leaves your phone.
 
 ## Technical details
-- Package: `com.bmo.sarjuyari`
+- Package: `com.bmo.onepercentalert`
 - Version: 1.4 (versionCode 5)
 - Min SDK: 26 (Android 8.0+)
 - Target SDK: 34 (Android 14)
@@ -48,14 +48,14 @@ No data is collected, no account is needed, nothing leaves your phone.
 - Source layout: `MainActivity` (UI), `BatteryService` (foreground monitor, `ACTION_BATTERY_CHANGED`), `AlertActivity` (full-screen warning), `BootReceiver` (auto-start)
 
 ## Download
-Get the APK from the **Releases** page: `battery-alert.apk`
+Get the APK from the **Releases** page: `one-percent-alert.apk`
 
 ## Screenshots / behavior
 - Main screen: dark modern UI with live battery percentage
 - Alert screen: full-screen red warning with big "BATTERY 1%!" text
 
 ## Source code
-Full source code is in this repository as `battery-alert-source.zip` (AndroidManifest, Java sources, layouts, drawables, icon, README, LICENSE). Unzip it to build the app yourself with aapt2 + d8, or open the files in `proj/`.
+Full source code is in this repository as `one-percent-alert-source.zip` (AndroidManifest, Java sources, layouts, drawables, icon, README, LICENSE). Unzip it to build the app yourself with aapt2 + d8, or open the files in `proj/`.
 
 ## Tags
 Search terms people use when they want this app — in Turkish and English, problem-focused:
